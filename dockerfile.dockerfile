@@ -10,5 +10,5 @@ RUN yum install postfix -y
 RUN yum install mailx -y 
 RUN yum install telnet -y
 RUN systemctl start postfix
-RUN systemctl enable postfix
-CMD ["postfix"]
+#RUN systemctl enable postfix
+CMD service postfix start && tail -F /var/log/maillog
